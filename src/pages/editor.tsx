@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
-
 import { useStateWithStorage } from '../hooks/use_state_with_storage'
+import * as ReactMarkdown from 'react-markdown'
 
 const { useState } = React
 const StorageKey = 'pages/editor:text'
@@ -61,7 +61,9 @@ export const Editor: React.FC = () => {
                 onChange={(event) => setText(event.target.value)}
                 value={text}
             />
-            <Preview>プレビューエリア</Preview>
+            <Preview>
+                <ReactMarkdown source={text} />
+            </Preview>
         </Wrapper>
         </>
     )
